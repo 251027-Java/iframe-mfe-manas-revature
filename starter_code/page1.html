@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 1</title>
+    <style>
+        body {
+            background-color: lightcyan;
+            color:darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Page 1</h1>
+    <p>This is page one.</p>
+
+    <button id="alertBtn">Alert Shell</button>
+
+    <script>
+        const btn = document.getElementById("alertBtn");
+        btn.addEventListener('click', () => {
+            const message = {
+                type: "ALERT",
+                text: "Page 1 called Index."
+            };
+
+            // Used this when running file directly from folder
+            window.parent.postMessage(message, "*");
+
+            // Use this to run outside of local environment
+            // window.parent.postMessage(message, "http://localhost:5500/index.html");
+        });
+    </script>
+
+</body>
